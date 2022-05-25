@@ -15,11 +15,24 @@
 
 #### js调用native方法梳理
 
-<img src="/Users/zhenglihuan/Library/Application Support/typora-user-images/image-20220525204929017.png" alt="image-20220525204929017" style="zoom:50%;" />
+| 平台                                                         | 方法                                       | 备注                |
+| :----------------------------------------------------------- | ------------------------------------------ | ------------------- |
+| Android                                                      | shouldOverrideUrlLoading                   | scheme拦截方法      |
+| Android                                                      | addJavascriptInterface                     | API                 |
+| Android                                                      | onJsAlert()、onJsConfirm()、onJsPrompt（） |                     |
+| IOS                                                          | 拦截URL                                    |                     |
+| IOS(UIwebview)                                               | JavaScriptCore                             | API方法，IOS7+ 支持 |
+| IOS(WKwebview)window.webkit.messageHandlersAPi方法，IOS8+支持 |                                            |                     |
 
 #### Native调用js方法梳理
 
-<img src="/Users/zhenglihuan/Library/Application Support/typora-user-images/image-20220525205249728.png" alt="image-20220525205249728" style="zoom:50%;" />
+| 平台           | 方法                                   | 备注          |
+| -------------- | -------------------------------------- | ------------- |
+| Android        | loadurl()                              |               |
+| Android        | evaluateJavascript()                   | Android 4.4 + |
+| IOS(UIwebview) | stringByEvaluatingJavaScriptFromString |               |
+| IOS(UIwebview) | JavaScriptCore                         | IOS7.0+       |
+| IOS(Wkwebview) | evaluateJavaScript:javaScriptString    | iOS8.0+       |
 
 #### 1、jsBridge主要有两种方式：注入API和拦截URL Scheme
 
