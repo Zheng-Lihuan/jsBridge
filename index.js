@@ -1,4 +1,3 @@
-// import { browser } from './utils'
 
 (function () {
   var id = 0,
